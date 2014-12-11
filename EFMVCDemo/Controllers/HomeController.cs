@@ -3,50 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Data.Entity;
+using EFMVCDemo.DAL;
 
 namespace EFMVCDemo.Controllers
 {
     public class HomeController : Controller
     {
+        IProductRepository productRepository;
+        public HomeController(IProductRepository productRepository)
+        {
+            this.productRepository = productRepository;
+        }
+
         public ActionResult Index()
         {
-            MyContext context = new MyContext();
-
-            Product product = new Product { Name = "product 1" };
-            context.Products.Add(product);
-            context.SaveChanges();
-
-            return View();
+            List<Product> products = productRepository.getProducts();
+            return View("Index", products);  //if not explicit view name, can't unit test it!!
         }
-    }
 
-    public class MyContext : DbContext
-    {
-        public MyContext() : base("EFMVCDemoDB") { }
-        public DbSet<Product> Products { get; set; }
-    }
-
-    public class DbInitializer : DropCreateDatabaseAlways<MyContext>
-    {
-        protected override void Seed(MyContext context)
+        public ActionResult RedirectDemo(int Id)
         {
-            var products = new List<Product>
-            {
-                new Product{Name="p1", Description="desc1"},
-                new Product{Name="p2", Description="desc2"}
-            };
-            products.ForEach(s => context.Products.Add(s));
-            //context.SaveChanges();
-            base.Seed(context);
+            if (Id < 1)
+                return RedirectToAction("Index");
+
+            return View("About");
         }
     }
-
-    public class Product
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-    } 
-
 }

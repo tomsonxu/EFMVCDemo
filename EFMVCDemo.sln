@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFMVCDemo", "EFMVCDemo\EFMVCDemo.csproj", "{71CDE34A-25E7-4ED7-B8D7-BCEA5A052E5C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E1E15076-A3AF-4565-8046-367BB127DB21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFMVCDemo.UnitTest", "EFMVCDemo.UnitTest\EFMVCDemo.UnitTest.csproj", "{3DF6F0FC-1847-479F-92D9-142B0299C177}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,15 @@ Global
 		{71CDE34A-25E7-4ED7-B8D7-BCEA5A052E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71CDE34A-25E7-4ED7-B8D7-BCEA5A052E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71CDE34A-25E7-4ED7-B8D7-BCEA5A052E5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DF6F0FC-1847-479F-92D9-142B0299C177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DF6F0FC-1847-479F-92D9-142B0299C177}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DF6F0FC-1847-479F-92D9-142B0299C177}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DF6F0FC-1847-479F-92D9-142B0299C177}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3DF6F0FC-1847-479F-92D9-142B0299C177} = {E1E15076-A3AF-4565-8046-367BB127DB21}
 	EndGlobalSection
 EndGlobal
