@@ -14,6 +14,12 @@ namespace EFMVCDemo
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "SSOAIMSRoute",
+                url: "studentlan/bansso/{moduleCode}/{moduleParams}",
+                defaults: new { controller = "SsoAims", action = "sso", moduleParams = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
