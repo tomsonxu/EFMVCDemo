@@ -30,6 +30,7 @@ namespace EFMVCDemo.App_Start
      
         private static void InitializeContainer(Container container)
         {
+            container.RegisterPerWebRequest<MyContext>();
             container.Register<IProductRepository, ProductRepository>();
         }
     }
