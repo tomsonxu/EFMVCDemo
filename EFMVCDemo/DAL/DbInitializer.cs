@@ -16,7 +16,6 @@ namespace EFMVCDemo.DAL
                 new Product{Name="p2", Description="desc2"}
             };
             products.ForEach(s => context.Products.Add(s));
-            //context.SaveChanges();
             base.Seed(context);
         }
     }

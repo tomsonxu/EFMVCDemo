@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Configuration;
 using EFMVCDemo.DAL;
+using System.Data.Entity;
 
 namespace EFMVCDemo.IntegrationTest.DAL
 {
@@ -11,7 +12,8 @@ namespace EFMVCDemo.IntegrationTest.DAL
         [TestInitialize]
         public void setup()
         {
-            AppDomain.CurrentDomain.SetData("DataDirectory", System.IO.Directory.GetCurrentDirectory());
+            MyContext context = new MyContext();
+            context.Database.Initialize(true);  //very important, it makes db initialize before every test!!
         }
 
         [TestMethod]
