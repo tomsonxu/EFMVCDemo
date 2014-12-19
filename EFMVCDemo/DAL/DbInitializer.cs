@@ -12,8 +12,8 @@ namespace EFMVCDemo.DAL
         {
             var products = new List<Product>
             {
-                new Product{Name="p1", Description="desc1"},
-                new Product{Name="p2", Description="desc2"}
+                new Product{Name="p1", Description="desc1", LogTime=DateTime.Now},
+                new Product{Name="p2", Description="desc2", LogTime=DateTime.Now}
             };
             products.ForEach(s => context.Products.Add(s));
             base.Seed(context);

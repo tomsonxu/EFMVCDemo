@@ -22,7 +22,7 @@ namespace EFMVCDemo.UnitTest.mvc
 
             //Verifiable() to mark this expectation, when call mock.Verity(), it will check if this expectation is met
             //for this case, it set "getProducts()" must be called.
-            mock.Setup(c => c.getProducts()).Returns(new List<Product> { new Product { Name = "p1", Description = "p1" } }).Verifiable();
+            mock.Setup(c => c.getProducts()).Returns(new List<Product> { new Product { Name = "p1", Description = "p1", LogTime=DateTime.Now } }).Verifiable();
 
             HomeController controller = new HomeController(mock.Object);
             var viewResult = (ViewResult)controller.Index();

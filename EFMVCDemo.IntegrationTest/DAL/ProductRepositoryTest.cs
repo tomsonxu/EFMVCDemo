@@ -21,7 +21,7 @@ namespace EFMVCDemo.IntegrationTest.DAL
         {
             MyContext context = new MyContext();
             ProductRepository productRepository = new ProductRepository(context);
-            productRepository.addProduct(new Product { Name = "p3", Description = "desc3" });
+            productRepository.addProduct(new Product { Name = "p3", Description = "desc3", LogTime=DateTime.Now });
             Assert.AreEqual(3, productRepository.getProducts().Count);
         }
 
