@@ -28,5 +28,35 @@ namespace EFMVCDemo.Controllers
 
             return View("About");
         }
+
+        public ActionResult RequestServerVariablesDemo()
+        {
+            if (string.IsNullOrEmpty(Request.ServerVariables["REMOTE_ADDR"]))
+                return RedirectToAction("Index");
+
+            return View("About");
+        }
+
+        public ActionResult RequestCookiesDemo()
+        {
+            if (Request.Cookies["testCookie"] == null)
+                return RedirectToAction("Index");
+
+            return View("About");
+        }
+
+        public ActionResult SessionDemo()
+        {
+            if (Session["testSession"] == null)
+                return RedirectToAction("Index");
+
+            return View("About");
+        }
+
+        public ActionResult ViewBagDemo()
+        {
+            ViewBag.msg = "abc";
+            return View("About");
+        }
     }
 }
